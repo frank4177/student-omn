@@ -11,14 +11,13 @@ interface IDocumentProps {
   documentData: any;
 }
 
-const kpoo =
-  "https://res.cloudinary.com/omniswift/image/upload/v1648473802/wqouqp73otvvjmkkekkj.png";
+
 // Define your React component for the UI design
 export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
   console.log(documentData?.data?.firstname);
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
+      <Page size="A3" style={styles.page}>
         {/* header section */}
         <View style={styles.topDetails}>
           <Image
@@ -27,7 +26,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
             // className={styles.result__l
 
             style={styles.photos}
-            source={kpoo}
+            source={documentData?.logo}
           />
           <View
             style={{
@@ -43,6 +42,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                gap:3
               }}
             >
               <Text style={{ fontSize: 12 }}>
@@ -59,7 +59,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
             </Text>
           </View>
           <Image
-            src="https://res.cloudinary.com/omniswift/image/upload/v1648473914/tc4kvpfeocqkyhj560fc.png"
+            src={documentData?.profile_picture}
             style={styles.photos}
           />
         </View>
@@ -172,7 +172,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
               >
                 <Text style={[styles.tableColumnSize]}>{index + 1}</Text>
                 <Text style={[styles.tableColumnSize]}>{item.coursecode}</Text>
-                <Text style={[styles.tableColumnSize, {fontSize: 10}]}>{item.title}</Text>
+                <Text style={[styles.tableColumnSize, ]}>{item.title}</Text>
                 <Text style={[styles.tableColumnSize]}>{item.credit_unit}</Text>
                 <Text style={[styles.tableColumnSize]}>{item.grade}</Text>
                 <Text style={[styles.tableColumnSize]}>{item.total_point}</Text>
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     height: 100,
   },
   tableColumnSize: {
-    maxWidth: 80,
+    maxWidth: 200,
     width: "100%",
     fontSize: 12,
     textAlign: "center",
