@@ -33,3 +33,7 @@ button{
   cursor: pointer;
   border: none;
 }
+
+.option[disabled]:first-child {
+  color: red;
+}

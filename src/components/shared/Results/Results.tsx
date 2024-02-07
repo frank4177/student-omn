@@ -255,6 +255,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
 
 interface IPDF {
   handleClick: () => void;
+  // loading?: boolean
 }
 
 // Render the PDF using react-pdf

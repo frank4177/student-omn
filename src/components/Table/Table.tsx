@@ -5,6 +5,7 @@ import { getResult } from "../../services/APIs/result";
 import { pdf } from "@react-pdf/renderer";
 import { saveAs } from "file-saver";
 import MyPDFViewer, { MyPDFDocument } from "../shared/Results/Results";
+// import { useState } from "react";
 
 interface ITableProps {
   studentTableData?: StudentDataType[];
@@ -12,10 +13,11 @@ interface ITableProps {
 }
 
 const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
+  // const [loading, setLoading] = useState(false)
 
   const handleDownload = async (id: number) => {
+    // setLoading(true)
     const res = await getResult(id);
-
     if (res) {
       const fileName = "result.pdf";
       const blob = await pdf(
@@ -23,6 +25,7 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
       ).toBlob();
 
       saveAs(blob, fileName);
+      // setLoading(false)
     }
   };
 
@@ -50,6 +53,7 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
                 <td>
                   <MyPDFViewer
                     handleClick={() => handleDownload(item.id)}
+                    // loading={loading}
                   />
                 </td>
               </tr>

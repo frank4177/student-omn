@@ -31,25 +31,25 @@ const FilterSection = () => {
   // Options for Ages select
   const AgeOptions =
     ages?.data.map((item: any) => {
-      return { value: item?.age, label: item?.age };
+      return { value: item?.age, label: item?.age, };
     }) || [];
 
   // Options for State select
   const StateOptions =
     state?.data.map((item: any) => {
-      return { value: item?.name, label: item?.name };
+      return { value: item?.name, label: item?.name,  };
     }) || [];
 
   // Options for Levels select
   const LevelsOptions =
     levels?.data.map((item: any) => {
-      return { value: item?.level, label: item?.level };
+      return { value: item?.level, label: item?.level,  };
     }) || [];
 
   // Options for Gender select
   const GenderOptions =
     gender?.data.map((item: any) => {
-      return { value: item?.gender, label: item?.gender };
+      return { value: item?.gender, label: item?.gender,  };
     }) || [];
 
     // handle change for Select component
@@ -74,24 +74,28 @@ const FilterSection = () => {
           <Select
             title="Age"
             name="age"
+            placeHolder= "select age"
             options={AgeOptions}
             handleSelect={handleSelectChange}
           />
           <Select
             title="State"
             name="state"
+            placeHolder= "select state"
             options={StateOptions}
             handleSelect={handleSelectChange}
           />
           <Select
             title="Level"
             name="level"
+            placeHolder= "select level"
             options={LevelsOptions}
             handleSelect={handleSelectChange}
           />
           <Select
             title="Gender"
             name="gender"
+            placeHolder = "select gender"
             options={GenderOptions}
             handleSelect={handleSelectChange}
           />
