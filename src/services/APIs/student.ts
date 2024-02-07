@@ -38,7 +38,11 @@ export const useFetchStudentData = (url: string) => {
     }
   };
 
-  const { data, isValidating, mutate } = useSWR(url, fetcher);
+  const { data, isValidating, mutate } = useSWR(url, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false
+  });
 
   return { mutate, data, isValidating };
 };
