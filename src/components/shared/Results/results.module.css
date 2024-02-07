@@ -1,0 +1,152 @@
+/* Result styles */
+.result {
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    background-color: #ffffff; 
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 0px 20px;
+  }
+  
+  .result .topDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .result .topDetails div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    justify-items: center;
+  }
+  
+  .result .topDetails div h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 19px;
+  }
+  
+  .result .topDetails div h2 {
+    font-weight: 600;
+    font-size: 24px;
+  }
+  
+  .result .topDetails div p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+  }
+  
+  .result .topDetails div p span {
+    font-weight: 400;
+  }
+  
+  .result__logo,
+  .result__passport {
+    width: 15rem;
+    height: 15rem;
+  }
+  
+  /* ResultBody styles */
+  .resultBody {
+    margin-top: 7rem;
+  }
+  
+  
+  .resultBody__bottom {
+    margin-top: 5rem;
+  }
+  
+  /* Table styles */
+  .table {
+    width: 100%;
+    position: relative;
+  }
+
+  .table2 {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 50.5% !important;
+  }
+  
+
+  
+  .table__head {
+    position: sticky;
+    top: 0;
+    width: 90% !important;
+  }
+  
+  .table__head th {
+    text-align: start;
+    font-size: 14px;
+    line-height: 17px;
+    padding-bottom: 18px;
+    padding: 18px 25px;
+    white-space: nowrap;
+    background-color: #0D7590;
+    color: #ffffff; 
+    font-weight: 400;
+    letter-spacing: 0.75px;
+  }
+  
+  .table__body tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  .table__body td {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 25px 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px !important;
+    letter-spacing: 0.75px;
+  }
+  
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 98.5% !important;
+  }
+
+  
+
+ 
+  
+  /* Remarks styles */
+  .remarks {
+    display: flex;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+  
+  .remarks > *:last-child {
+    margin-left: 1rem;
+    color: #3498db; /* Replace with the actual color from var.$blue */
+  }
+  
+  /* Signature styles */
+  .signature {
+    margin-top: 6rem;
+    font-size: 1.4rem;
+  }
+  
+  .signature span {
+    margin-bottom: 1rem;
+  }
+  
+
+
+/* Media queries */
+  @media only screen and (max-width: 1300px) {
+    .table {
+      width: 1150px;
+    }
+  }
