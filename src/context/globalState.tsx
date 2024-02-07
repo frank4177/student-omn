@@ -5,12 +5,14 @@ import { StudentDataType } from "../types";
 export const GlobalContext = createContext<any>(null);
 
 type StudentState = {
-  students: StudentDataType[]; // Define StudentDataType as the type for your students array
+  students: StudentDataType[]; 
+  isFetching: boolean
 };
 
 // Define the initial state
 const initialState: StudentState = {
   students: [],
+  isFetching: false
 };
 
 

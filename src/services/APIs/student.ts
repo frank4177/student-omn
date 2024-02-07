@@ -12,6 +12,10 @@ export const useFetchStudentData = (url: string) => {
   const { dispatch } = useContext(GlobalContext);
 
   const fetcher = async (url: string) => {
+    dispatch({
+      type: "IS_FETCHING",
+      payload: true
+  })
     try {
       const res = await request.get(url, header);
       console.log(res);
@@ -19,8 +23,16 @@ export const useFetchStudentData = (url: string) => {
         type: "FETCH_STUDENTS",
         payload: res?.data.data?.students,
       });
+      dispatch({
+        type: "IS_FETCHING",
+        payload: false
+    })
       return res?.data;
     } catch (error) {
+      dispatch({
+        type: "IS_FETCHING",
+        payload: false
+    })
       console.error("Error fetching data:", error);
       throw error;
     }

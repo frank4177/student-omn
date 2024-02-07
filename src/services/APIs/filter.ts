@@ -31,6 +31,10 @@ export const useFetchStudentData = (param: string) => {
 export const useFilterStudents = () => {
   const { dispatch } = useContext(GlobalContext);
   const postData = async (urlparam: string, { arg }: any) => {
+    dispatch({
+        type: "IS_FETCHING",
+        payload: true
+    })
     console.log(arg);
     try {
       const res = await request.post(urlparam, arg, header);
@@ -39,8 +43,16 @@ export const useFilterStudents = () => {
         type: "FETCH_STUDENTS",
         payload: res?.data?.data?.students,
       });
+      dispatch({
+        type: "IS_FETCHING",
+        payload: false
+    })
       return res?.data;
     } catch (error) {
+        dispatch({
+            type: "IS_FETCHING",
+            payload: false
+        })
       console.error("Error fetching data:", error);
       throw error;
     }

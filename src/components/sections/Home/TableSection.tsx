@@ -14,8 +14,8 @@ const TableSection = () => {
 
 
   return (
-    <section>
-      {/* {isValidating ? "loading": null} */}
+    <section className="mt-[4rem]">
+      {state.isFetching ? <div className="font-[500] text-[20px] mb-1">Fetching...</div> : null}
       <Table
         studentTableData={state.students}
         studentTableHead={studentTableHead}

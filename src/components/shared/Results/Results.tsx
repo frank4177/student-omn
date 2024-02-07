@@ -147,12 +147,12 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
               gap: 5,
             }}
           >
-            <Text style={styles.tableColumnSize}>S/N</Text>
-            <Text style={styles.tableColumnSize}>Course Code</Text>
-            <Text style={styles.tableColumnSize}>Course Title</Text>
-            <Text style={styles.tableColumnSize}>Unit</Text>
-            <Text style={styles.tableColumnSize}>Grade</Text>
-            <Text style={styles.tableColumnSize}>Total Point</Text>
+            <Text style={[styles.tableColumnSize, {color:"white"}]}>S/N</Text>
+            <Text style={[styles.tableColumnSize, {color:"white"}]}>Course Code</Text>
+            <Text style={[styles.tableColumnSize, {color:"white"}]}>Course Title</Text>
+            <Text style={[styles.tableColumnSize, {color:"white"}]}>Unit</Text>
+            <Text style={[styles.tableColumnSize, {color:"white"}]}>Grade</Text>
+            <Text style={[styles.tableColumnSize, {color:"white"}]}>Total Point</Text>
           </View>
 
           {/* Body */}
@@ -175,7 +175,6 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
                 <Text style={[styles.tableColumnSize, {fontSize: 10}]}>{item.title}</Text>
                 <Text style={[styles.tableColumnSize]}>{item.credit_unit}</Text>
                 <Text style={[styles.tableColumnSize]}>{item.grade}</Text>
-
                 <Text style={[styles.tableColumnSize]}>{item.total_point}</Text>
               </View>
             ))}
@@ -196,12 +195,12 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
               gap: 5,
             }}
           >
-            <Text style={styles.tableColumnSize2}>UNTS</Text>
-            <Text style={styles.tableColumnSize2}>UNTD</Text>
-            <Text style={styles.tableColumnSize2}>GPTS</Text>
-            <Text style={styles.tableColumnSize2}>GPTD</Text>
-            <Text style={styles.tableColumnSize2}>GPATS</Text>
-            <Text style={styles.tableColumnSize2}>GPATD</Text>
+            <Text style={[styles.tableColumnSize2, {color:"white"}]}>UNTS</Text>
+            <Text style={[styles.tableColumnSize2, {color:"white"}]}>UNTD</Text>
+            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPTS</Text>
+            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPTD</Text>
+            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPATS</Text>
+            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPATD</Text>
           </View>
 
           {/* Body */}
@@ -302,13 +301,11 @@ const styles = StyleSheet.create({
     width: "100%",
     fontSize: 12,
     textAlign: "center",
-    color: "black",
   },
   tableColumnSize2: {
     maxWidth: 50,
     width: "100%",
     fontSize: 12,
     textAlign: "center",
-    color: "black",
   },
 });

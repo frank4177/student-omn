@@ -16,7 +16,11 @@ export const studentReducer = (state: StudentState, action:actionType) => {
           ...state,
           students: action.payload
         };
-      
+        case "IS_FETCHING":
+          return {
+            ...state,
+            isFetching: action.payload
+          };
       default:
         return state;
     }
