@@ -170,12 +170,12 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
                 }}
                 key={index}
               >
-                <Text style={[styles.tableColumnSize]}>{index + 1}</Text>
-                <Text style={[styles.tableColumnSize]}>{item.coursecode}</Text>
-                <Text style={[styles.tableColumnSize, ]}>{item.title}</Text>
-                <Text style={[styles.tableColumnSize]}>{item.credit_unit}</Text>
-                <Text style={[styles.tableColumnSize]}>{item.grade}</Text>
-                <Text style={[styles.tableColumnSize]}>{item.total_point}</Text>
+                <Text style={[styles.tableColumnSize, {color:"black"}]}>{index + 1}</Text>
+                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.coursecode}</Text>
+                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.title}</Text>
+                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.credit_unit}</Text>
+                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.grade}</Text>
+                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.total_point}</Text>
               </View>
             ))}
           </View>
@@ -216,12 +216,12 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
                   gap: 5,
                 }}
               >
-                <Text style={[styles.tableColumnSize2]}>{documentData?.data?.cummulative?.unts}</Text>
-                <Text style={[styles.tableColumnSize2]}>{documentData?.data?.cummulative?.untd}</Text>
-                <Text style={[styles.tableColumnSize2]}>{documentData?.data?.cummulative?.gpts}</Text>
-                <Text style={[styles.tableColumnSize2]}>{documentData?.data?.cummulative?.gptd}</Text>
-                <Text style={[styles.tableColumnSize2]}>{documentData?.data?.cummulative?.gpats}</Text>
-                <Text style={[styles.tableColumnSize2]}>{documentData?.data?.cummulative?.gpatd}</Text>
+                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.unts}</Text>
+                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.untd}</Text>
+                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gpts}</Text>
+                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gptd}</Text>
+                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gpats}</Text>
+                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gpatd}</Text>
 
               </View>
           </View>
