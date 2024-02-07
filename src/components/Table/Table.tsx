@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+
 import styles from "./styles.table.module.css";
 import { StudentDataType, StudentTableHeadType } from "../../types";
-import Button from "../Buttons/Button";
 import { getResult } from "../../services/APIs/result";
-import Modal from "../shared/Modal/Modal";
-import Results from "../shared/Results/Results";
-import MyPDFViewer from "../pdf";
+import { pdf } from "@react-pdf/renderer";
+import { saveAs } from "file-saver";
+import MyPDFViewer, { MyPDFDocument } from "../shared/Results/Results";
 
 interface ITableProps {
   studentTableData?: StudentDataType[];
@@ -13,17 +12,19 @@ interface ITableProps {
 }
 
 const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
-  const [modal, setToggleModal] = useState(false);
-  const [studentResult, setStudentResult] = useState();
-
-  console.log(studentResult)
 
   const handleDownload = async (id: number) => {
-   const res = await getResult(id);
+    const res = await getResult(id);
 
-   setStudentResult(res.data)
+    if (res) {
+      const fileName = "result.pdf";
+      const blob = await pdf(
+        <MyPDFDocument documentData={res?.data} />
+      ).toBlob();
+
+      saveAs(blob, fileName);
+    }
   };
-
 
   return (
     <div className={styles.table__container}>
@@ -47,7 +48,9 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
                 <td>{item.level}</td>
                 <td>{item.state}</td>
                 <td>
-                     <MyPDFViewer handleClick={()=>handleDownload(item.id)} data={studentResult}/>
+                  <MyPDFViewer
+                    handleClick={() => handleDownload(item.id)}
+                  />
                 </td>
               </tr>
             ))}

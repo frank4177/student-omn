@@ -11,7 +11,7 @@ interface IModalProps {
   height?: number
 }
 
-const Modal = ({ button, content, modal,toggleModal,height, width }: IModalProps) => {
+const Modal = ({ button, content, modal,toggleModal}: IModalProps) => {
 
   const onToggleDialog = () => {
     toggleModal?.((value) => !value);

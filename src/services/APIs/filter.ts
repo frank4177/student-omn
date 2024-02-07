@@ -14,7 +14,6 @@ export const useFetchStudentData = (param: string) => {
   const fetcher = async (url: string) => {
     try {
       const res = await request.get(url, header);
-      console.log(res);
       return res?.data;
     } catch (error) {
       console.error("Error fetching data:", error);

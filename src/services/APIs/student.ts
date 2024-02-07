@@ -8,7 +8,7 @@ export const ALL_DATA = "/viewAllData";
 
 
 // STUDENT GET REQUEST
-export const useFetchStudentData = (param: string) => {
+export const useFetchStudentData = (url: string) => {
   const { dispatch } = useContext(GlobalContext);
 
   const fetcher = async (url: string) => {
@@ -26,7 +26,7 @@ export const useFetchStudentData = (param: string) => {
     }
   };
 
-  const { data, isValidating, mutate } = useSWR("/viewAllData", fetcher);
+  const { data, isValidating, mutate } = useSWR(url, fetcher);
 
   return { mutate, data, isValidating };
 };

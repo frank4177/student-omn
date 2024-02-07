@@ -1,4 +1,4 @@
-import React from "react";
+
 
 interface IButtonProps {
   title: string;
@@ -8,7 +8,7 @@ interface IButtonProps {
   handleClick?: ()=> void
 }
 
-const Button = ({ title, height, width, borderRadius, handleClick }: IButtonProps) => {
+const Button = ({ title, height, width, handleClick }: IButtonProps) => {
   const btnTitle = title ? title : "Button";
   return (
     <button

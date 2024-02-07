@@ -1,6 +1,6 @@
+
 import FilterSection from "./components/sections/Home/FilterSection";
 import TableSection from "./components/sections/Home/TableSection";
-import Results from "./components/shared/Results/Results";
 import CenterContainer from "./container/centerContainer";
 
 const App = () => {

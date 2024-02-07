@@ -10,10 +10,6 @@ import {
   useFilterStudents,
 } from "../../../services/APIs/filter";
 
-type filterDataType = {
-  key?: string;
-  value?: string | number;
-};
 
 const FilterSection = () => {
   const { data: levels } = useFetchStudentData(ALL_LEVELS);
