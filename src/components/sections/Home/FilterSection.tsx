@@ -24,46 +24,49 @@ const FilterSection = () => {
     gender: "",
   });
 
-
-
-  // Options for Ages select
+  // Options for Ages in Select component
   const AgeOptions =
     ages?.data.map((item: any) => {
       return { value: item?.age, label: item?.age };
     }) || [];
 
-  // Options for State select
+  // Options for State  in Select component
   const StateOptions =
     state?.data.map((item: any) => {
       return { value: item?.name, label: item?.name };
     }) || [];
 
-  // Options for Levels select
+  // Options for Levels  in Select component
   const LevelsOptions =
     levels?.data.map((item: any) => {
       return { value: item?.level, label: item?.level };
     }) || [];
 
-  // Options for Gender select
+  // Options for Gender  in Select component
   const GenderOptions =
     gender?.data.map((item: any) => {
       return { value: item?.gender, label: item?.gender };
     }) || [];
+
 
   // handle change for Select component
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const data = { ...filterData };
     data[e.target.name] = e.target.value;
     setFilterData(data);
-    setErrors(false)
+    setErrors(false);
   };
 
-  //handle filter submit
+
+  //Handle submit
   const handlesubmit = (e: any) => {
     e.preventDefault();
+
+    // check if filterData state has at least one value
     const hasValue = Object.values(filterData).some(
-      (value: any) => value !== "" && value !== 0
+      (value: any) => value !== ""
     );
+
     if (!hasValue) {
       setErrors(true);
     } else {
@@ -75,7 +78,7 @@ const FilterSection = () => {
     <>
       <section className="bg-white p-5 py-10 space-y-7 min-h-[336px]">
         <h2 className="text-[25px] text-[#616161]">Filter Student Table By:</h2>
-        
+
         <form
           className="grid lg:grid-cols-3 md:grid-cols-2 gap-[40px] place-content-center"
           onSubmit={handlesubmit}
@@ -113,7 +116,9 @@ const FilterSection = () => {
             className="rounded-[4px] max-w-[312px] h-[57px]"
           />
         </form>
-        <span className="text-red-500 text-[15px]">{errors ? "Please select at least one filter" : null}</span>
+        <span className="text-red-500 text-[15px]">
+          {errors ? "Please select at least one filter" : null}
+        </span>
       </section>
     </>
   );

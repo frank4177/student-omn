@@ -3,21 +3,21 @@ import { header, request } from "./_request";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/globalState";
 
-// Fetch request
+// fetch all students endpoint
 export const ALL_DATA = "/viewAllData";
 
 
 // STUDENT GET REQUEST
-export const useFetchStudentData = (url: string) => {
+export const useFetchStudentData = (param: string) => {
   const { dispatch } = useContext(GlobalContext);
 
-  const fetcher = async (url: string) => {
+  const fetcher = async (endpoint: string) => {
     dispatch({
       type: "IS_FETCHING",
       payload: true
   })
     try {
-      const res = await request.get(url, header);
+      const res = await request.get(endpoint, header);
       console.log(res);
       dispatch({
         type: "FETCH_STUDENTS",
@@ -39,10 +39,10 @@ export const useFetchStudentData = (url: string) => {
     }
   };
 
-  const { data, isValidating, mutate } = useSWR(url, fetcher, {
+  const { data, isValidating, mutate } = useSWR(param, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
-    revalidateOnReconnect: false
+    revalidateOnReconnect: true
   });
 
   return { mutate, data, isValidating };

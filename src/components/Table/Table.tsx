@@ -4,7 +4,7 @@ import { getResult } from "../../services/APIs/result";
 import { pdf } from "@react-pdf/renderer";
 import { saveAs } from "file-saver";
 import { useState } from "react";
-import { ResultPDFDocument } from "../shared/Results/ResultPDFDocument";
+import { ResultPDFDocument } from "../shared/PDFDocuments/ResultPDFDocument";
 import Button from "../Buttons/Button";
 import Spinner from "../shared/Loaders/Spinner";
 
