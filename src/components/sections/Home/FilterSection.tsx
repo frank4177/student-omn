@@ -73,11 +73,11 @@ const FilterSection = () => {
 
   return (
     <>
-      <section className="bg-white p-5 py-10 space-y-7">
-        <h2 className="text-[25px]">Filter Student Table By:</h2>
+      <section className="bg-white p-5 py-10 space-y-7 min-h-[336px]">
+        <h2 className="text-[25px] text-[#616161]">Filter Student Table By:</h2>
         
         <form
-          className="grid lg:grid-cols-3 md:grid-cols-2 gap-[30px] place-content-center"
+          className="grid lg:grid-cols-3 md:grid-cols-2 gap-[40px] place-content-center"
           onSubmit={handlesubmit}
         >
           <Select
@@ -110,7 +110,7 @@ const FilterSection = () => {
           />
           <Button
             title="Search"
-            className="rounded-[4px] max-w-[312px] h-[50px]"
+            className="rounded-[4px] max-w-[312px] h-[57px]"
           />
         </form>
         <span className="text-red-500 text-[15px]">{errors ? "Please select at least one filter" : null}</span>
