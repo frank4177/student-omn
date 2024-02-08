@@ -11,23 +11,14 @@ interface IDocumentProps {
   documentData: any;
 }
 
-
-// Define your React component for the UI design
-export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
+export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
   console.log(documentData?.data?.firstname);
   return (
     <Document>
       <Page size="A3" style={styles.page}>
         {/* header section */}
         <View style={styles.topDetails}>
-          <Image
-            // src={kpoo}
-            // alt="logo"
-            // className={styles.result__l
-
-            style={styles.photos}
-            source={documentData?.logo}
-          />
+          <Image style={styles.photos} source={documentData?.logo} />
           <View
             style={{
               display: "flex",
@@ -42,7 +33,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                gap:3
+                gap: 3,
               }}
             >
               <Text style={{ fontSize: 12 }}>
@@ -58,10 +49,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
               Student First Semester Statement Of Result
             </Text>
           </View>
-          <Image
-            src={documentData?.profile_picture}
-            style={styles.photos}
-          />
+          <Image src={documentData?.profile_picture} style={styles.photos} />
         </View>
 
         {/* student details section */}
@@ -98,7 +86,14 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
                   documentData?.data?.surname}
               </Text>
             </View>
-            <View style={{ display: "flex", flexDirection: "row", gap: 5, justifyContent:"space-between" }}>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: 5,
+                justifyContent: "space-between",
+              }}
+            >
               <Text style={{ fontWeight: 700, fontSize: 12 }}>Level:</Text>
               <Text style={{ fontSize: 12 }}>{documentData?.data?.level}</Text>
             </View>
@@ -124,7 +119,14 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
               <Text style={{ fontWeight: 700, fontSize: 12 }}>Reg No:</Text>
               <Text style={{ fontSize: 12 }}>{documentData?.data?.reg_no}</Text>
             </View>
-            <View style={{ display: "flex", flexDirection: "row", gap: 5, justifyContent:"space-between" }}>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: 5,
+                justifyContent: "space-between",
+              }}
+            >
               <Text style={{ fontWeight: 700, fontSize: 12 }}>Session:</Text>
               <Text style={{ fontSize: 12 }}>
                 {documentData?.data?.session}
@@ -133,7 +135,7 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
           </View>
         </View>
 
-        {/* Course Table */}
+        {/* Course Table section */}
         <View>
           {/* Head */}
           <View
@@ -147,12 +149,24 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
               gap: 5,
             }}
           >
-            <Text style={[styles.tableColumnSize, {color:"white"}]}>S/N</Text>
-            <Text style={[styles.tableColumnSize, {color:"white"}]}>Course Code</Text>
-            <Text style={[styles.tableColumnSize, {color:"white"}]}>Course Title</Text>
-            <Text style={[styles.tableColumnSize, {color:"white"}]}>Unit</Text>
-            <Text style={[styles.tableColumnSize, {color:"white"}]}>Grade</Text>
-            <Text style={[styles.tableColumnSize, {color:"white"}]}>Total Point</Text>
+            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+              S/N
+            </Text>
+            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+              Course Code
+            </Text>
+            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+              Course Title
+            </Text>
+            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+              Unit
+            </Text>
+            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+              Grade
+            </Text>
+            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+              Total Point
+            </Text>
           </View>
 
           {/* Body */}
@@ -170,18 +184,30 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
                 }}
                 key={index}
               >
-                <Text style={[styles.tableColumnSize, {color:"black"}]}>{index + 1}</Text>
-                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.coursecode}</Text>
-                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.title}</Text>
-                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.credit_unit}</Text>
-                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.grade}</Text>
-                <Text style={[styles.tableColumnSize, {color:"black"}]}>{item.total_point}</Text>
+                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                  {index + 1}.
+                </Text>
+                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                  {item.coursecode}
+                </Text>
+                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                  {item.title}
+                </Text>
+                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                  {item.credit_unit}
+                </Text>
+                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                  {item.grade}
+                </Text>
+                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                  {item.total_point}
+                </Text>
               </View>
             ))}
           </View>
         </View>
 
-        {/* UNTS GPTS Table */}
+        {/* UNTS GPTS Table section*/}
         <View style={{ maxWidth: "65%" }}>
           {/* Head */}
           <View
@@ -195,39 +221,62 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
               gap: 5,
             }}
           >
-            <Text style={[styles.tableColumnSize2, {color:"white"}]}>UNTS</Text>
-            <Text style={[styles.tableColumnSize2, {color:"white"}]}>UNTD</Text>
-            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPTS</Text>
-            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPTD</Text>
-            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPATS</Text>
-            <Text style={[styles.tableColumnSize2, {color:"white"}]}>GPATD</Text>
+            <Text style={[styles.tableColumnSize2, { color: "white" }]}>
+              UNTS
+            </Text>
+            <Text style={[styles.tableColumnSize2, { color: "white" }]}>
+              UNTD
+            </Text>
+            <Text style={[styles.tableColumnSize2, { color: "white" }]}>
+              GPTS
+            </Text>
+            <Text style={[styles.tableColumnSize2, { color: "white" }]}>
+              GPTD
+            </Text>
+            <Text style={[styles.tableColumnSize2, { color: "white" }]}>
+              GPATS
+            </Text>
+            <Text style={[styles.tableColumnSize2, { color: "white" }]}>
+              GPATD
+            </Text>
           </View>
 
           {/* Body */}
           <View>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  backgroundColor: "#F2F2F2",
-                  height: 40,
-                  justifyContent: "space-between",
-                  gap: 5,
-                }}
-              >
-                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.unts}</Text>
-                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.untd}</Text>
-                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gpts}</Text>
-                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gptd}</Text>
-                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gpats}</Text>
-                <Text style={[styles.tableColumnSize2, {color:"black"}]}>{documentData?.data?.cummulative?.gpatd}</Text>
-
-              </View>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                backgroundColor: "#F2F2F2",
+                height: 40,
+                justifyContent: "space-between",
+                gap: 5,
+              }}
+            >
+              <Text style={[styles.tableColumnSize2, { color: "black" }]}>
+                {documentData?.data?.cummulative?.unts}
+              </Text>
+              <Text style={[styles.tableColumnSize2, { color: "black" }]}>
+                {documentData?.data?.cummulative?.untd}
+              </Text>
+              <Text style={[styles.tableColumnSize2, { color: "black" }]}>
+                {documentData?.data?.cummulative?.gpts}
+              </Text>
+              <Text style={[styles.tableColumnSize2, { color: "black" }]}>
+                {documentData?.data?.cummulative?.gptd}
+              </Text>
+              <Text style={[styles.tableColumnSize2, { color: "black" }]}>
+                {documentData?.data?.cummulative?.gpats}
+              </Text>
+              <Text style={[styles.tableColumnSize2, { color: "black" }]}>
+                {documentData?.data?.cummulative?.gpatd}
+              </Text>
+            </View>
           </View>
         </View>
 
-        {/* Remarks */}
+        {/* Remarks section */}
         <View
           style={{
             display: "flex",
@@ -239,10 +288,12 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
           }}
         >
           <Text style={{ fontWeight: 700, fontSize: 12 }}>Remarks:</Text>
-          <Text style={{ fontSize: 12, color: "#0D7590" }}>{documentData?.data?.cummulative?.remarks}</Text>
+          <Text style={{ fontSize: 12, color: "#0D7590" }}>
+            {documentData?.data?.cummulative?.remarks}
+          </Text>
         </View>
 
-        {/* Sign Registrar */}
+        {/* Sign Registrar section*/}
         <View style={{ marginTop: 40 }}>
           <Text>_________________________</Text>
           <Text style={{ fontSize: 13, marginTop: 7 }}>Registrar</Text>
@@ -252,39 +303,15 @@ export const MyPDFDocument = ({ documentData }: IDocumentProps) => {
   );
 };
 
-interface IPDF {
-  handleClick: () => void;
-  // loading?: boolean
-}
-
-// Render the PDF using react-pdf
-const MyPDFViewer = ({ handleClick}: IPDF) => {
-
-
-
-  return (
-    <div className="h-full">
-      <button className="bg-[#46C35F] h-[40px] w-[150px] text-white" onClick={handleClick}>Download Result</button>
-
-      {/* <PDFViewer className="w-full min-h-[100vh]">
-      <MyPDFDocument />
-    </PDFViewer> */}
-    </div>
-  );
-};
-
-// Export the PDF viewer component
-export default MyPDFViewer;
-
 // Define styles for the PDF
 const styles = StyleSheet.create({
   page: {
     backgroundColor: "white",
     width: "100%",
     padding: 20,
-    display:"flex",
-    flexDirection:"column",
-    gap:35,
+    display: "flex",
+    flexDirection: "column",
+    gap: 35,
   },
   topDetails: {
     display: "flex",

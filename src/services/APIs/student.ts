@@ -34,6 +34,7 @@ export const useFetchStudentData = (url: string) => {
         payload: false
     })
       console.error("Error fetching data:", error);
+      // alert("Error fetching data")
       throw error;
     }
   };

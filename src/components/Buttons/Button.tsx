@@ -1,23 +1,29 @@
-
-
 interface IButtonProps {
   title: string;
   height?: string;
   width?: string;
-  borderRadius?: string
-  handleClick?: ()=> void
+  borderRadius?: string;
+  handleClick?: () => void;
+  className?: string;
+  loader?: JSX.Element;
+  loading?: boolean;
 }
 
-const Button = ({ title, height, width, handleClick }: IButtonProps) => {
+const Button = ({
+  title,
+  handleClick,
+  className,
+  loader,
+  loading,
+}: IButtonProps) => {
   const btnTitle = title ? title : "Button";
   return (
     <button
-      className={`bg-[#46C35F] rounded-[4px] ${height ? height : "h-[55px]"} ${
-        width ? width : "w-[312px]"
-      }   border-none text-white`}
+      className={`bg-[#46C35F] flex flex-row items-center justify-center gap-2 ${className} border-none text-white`}
       onClick={handleClick}
     >
       {btnTitle}
+      {loading ? <span>{loader}</span> : null}
     </button>
   );
 };
