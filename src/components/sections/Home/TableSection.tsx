@@ -19,7 +19,7 @@ const TableSection = () => {
         />
       )}
 
-      {state?.students === undefined ? (
+      {state?.students === undefined && !state.isFetching ? (
         <div className="text-black text-2xl text-center">No Data Found</div>
       ) : null}
     </section>
