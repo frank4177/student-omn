@@ -15,7 +15,7 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
   console.log(documentData?.data?.firstname);
   return (
     <Document>
-      <Page size="A3" style={styles.page}>
+      <Page size="A4" style={styles.page}>
         {/* header section */}
         <View style={styles.topDetails}>
           <Image style={styles.photos} source={documentData?.logo} />
@@ -64,7 +64,7 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
         >
           <View
             style={{
-              maxWidth: 120,
+              maxWidth: 140,
               width: "100%",
               display: "flex",
               flexDirection: "column",
@@ -78,13 +78,15 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontWeight: 700, fontSize: 12 }}>Name:</Text>
-              <Text style={{ fontSize: 12 }}>
-                {" "}
-                {documentData?.data?.firstname +
-                  " " +
-                  documentData?.data?.surname}
-              </Text>
+              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Name:</Text>
+              <View style={{ textAlign: "left", width: "65%" }}>
+                <Text style={{ fontSize: 12 }}>
+                  {" "}
+                  {documentData?.data?.firstname +
+                    " " +
+                    documentData?.data?.surname}
+                </Text>
+              </View>
             </View>
             <View
               style={{
@@ -94,8 +96,12 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontWeight: 700, fontSize: 12 }}>Level:</Text>
-              <Text style={{ fontSize: 12 }}>{documentData?.data?.level}</Text>
+              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Level:</Text>
+              <View style={{ textAlign: "left", width: "65%" }}>
+                <Text style={{ fontSize: 12 }}>
+                  {documentData?.data?.level}
+                </Text>
+              </View>
             </View>
           </View>
 
@@ -116,8 +122,12 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 width: "100%",
               }}
             >
-              <Text style={{ fontWeight: 700, fontSize: 12 }}>Reg No:</Text>
-              <Text style={{ fontSize: 12 }}>{documentData?.data?.reg_no}</Text>
+              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Reg No:</Text>
+              <View style={{ textAlign: "left", width: "65%" }}>
+                <Text style={{ fontSize: 12 }}>
+                  {documentData?.data?.reg_no}
+                </Text>
+              </View>
             </View>
             <View
               style={{
@@ -127,10 +137,12 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontWeight: 700, fontSize: 12 }}>Session:</Text>
-              <Text style={{ fontSize: 12 }}>
-                {documentData?.data?.session}
-              </Text>
+              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Session:</Text>
+              <View style={{ textAlign: "left", width: "65%" }}>
+                <Text style={{ fontSize: 12 }}>
+                  {documentData?.data?.session}
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -149,22 +161,46 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
               gap: 5,
             }}
           >
-            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+            <Text style={[styles.tableColumnSize, { color: "white", marginLeft:10 }]}>
               S/N
             </Text>
-            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+            <Text
+              style={{
+                maxWidth: 80,
+                width: "100%",
+                fontSize: 12,
+                textAlign: "left",
+                color: "white",
+              }}
+            >
               Course Code
             </Text>
-            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+            <Text
+              style={{
+                maxWidth: 200,
+                width: "100%",
+                fontSize: 12,
+                textAlign: "left",
+                color: "white",
+              }}
+            >
               Course Title
             </Text>
-            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+            <Text style={[styles.tableColumnSize, { color: "white", textAlign:"center" }]}>
               Unit
             </Text>
-            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+            <Text style={[styles.tableColumnSize, { color: "white", textAlign:"center" }]}>
               Grade
             </Text>
-            <Text style={[styles.tableColumnSize, { color: "white" }]}>
+            <Text
+              style={{
+                maxWidth: 65,
+                width: "100%",
+                fontSize: 12,
+                textAlign: "center",
+                color: "white",
+              }}
+            >
               Total Point
             </Text>
           </View>
@@ -184,22 +220,46 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 }}
                 key={index}
               >
-                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                <Text style={[styles.tableColumnSize, { color: "black", marginLeft:10 }]}>
                   {index + 1}.
                 </Text>
-                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                <Text
+                  style={{
+                    maxWidth: 80,
+                    width: "100%",
+                    fontSize: 12,
+                    textAlign: "left",
+                    color: "black",
+                  }}
+                >
                   {item.coursecode}
                 </Text>
-                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                <Text
+                  style={{
+                    maxWidth: 200,
+                    width: "100%",
+                    fontSize: 12,
+                    textAlign: "left",
+                    color: "black",
+                  }}
+                >
                   {item.title}
                 </Text>
-                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                <Text style={[styles.tableColumnSize, { color: "black", textAlign:"center" }]}>
                   {item.credit_unit}
                 </Text>
-                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                <Text style={[styles.tableColumnSize, { color: "black", textAlign:"center" }]}>
                   {item.grade}
                 </Text>
-                <Text style={[styles.tableColumnSize, { color: "black" }]}>
+                <Text
+                  style={{
+                    maxWidth: 60,
+                    width: "100%",
+                    fontSize: 12,
+                    textAlign: "center",
+                    color: "black",
+                  }}
+                >
                   {item.total_point}
                 </Text>
               </View>
@@ -294,7 +354,7 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
         </View>
 
         {/* Sign Registrar section*/}
-        <View style={{ marginTop: 40 }}>
+        <View style={{ marginTop: 60 }}>
           <Text>_________________________</Text>
           <Text style={{ fontSize: 13, marginTop: 7 }}>Registrar</Text>
         </View>
@@ -311,7 +371,7 @@ const styles = StyleSheet.create({
     padding: 20,
     display: "flex",
     flexDirection: "column",
-    gap: 35,
+    gap: 40,
   },
   topDetails: {
     display: "flex",
@@ -324,10 +384,10 @@ const styles = StyleSheet.create({
     height: 100,
   },
   tableColumnSize: {
-    maxWidth: 200,
+    maxWidth: 40,
     width: "100%",
     fontSize: 12,
-    textAlign: "center",
+    textAlign: "left",
   },
   tableColumnSize2: {
     maxWidth: 50,

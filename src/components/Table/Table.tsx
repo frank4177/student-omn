@@ -37,7 +37,14 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
           <thead className={styles.table__head}>
             <tr>
               {studentTableHead?.map((item) => (
-                <th key={item.Header}>{item.Header}</th>
+                <th
+                  key={item.Header}
+                  style={{
+                    textAlign: item.Header === "Action" ? "center" : undefined,
+                  }}
+                >
+                  {item.Header}
+                </th>
               ))}
             </tr>
           </thead>
