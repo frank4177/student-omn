@@ -80,7 +80,7 @@ const FilterSection = () => {
         <h2 className="text-[25px] text-[#616161]">Filter Student Table By:</h2>
 
         <form
-          className="grid lg:grid-cols-3 md:grid-cols-2 gap-[40px] place-content-center"
+          className="grid lg:grid-cols-3 md:grid-cols-2 gap-[40px] box-border"
           onSubmit={handlesubmit}
         >
           <Select
