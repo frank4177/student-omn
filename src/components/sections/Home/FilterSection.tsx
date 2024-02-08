@@ -18,11 +18,12 @@ const FilterSection = () => {
   const { trigger: submitFilter } = useFilterStudents();
   const [errors, setErrors] = useState<boolean>(false);
   const [filterData, setFilterData] = useState<any>({
-    age: 0,
+    age: "",
     state: "",
     level: "",
     gender: "",
   });
+
 
 
   // Options for Ages select

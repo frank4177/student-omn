@@ -46,7 +46,7 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
               const isLoading = loading === item.id;
               return (
                 <tr key={item.id}>
-                  <td>0{item.id}</td>
+                  <td>{item.id < 10 ? <span>0{item.id}</span> : item.id}</td>
                   <td>{item.surname}</td>
                   <td>{item.firstname}</td>
                   <td>{item.age}</td>
@@ -55,7 +55,7 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
                   <td>{item.state}</td>
                   <td>
                     <Button
-                      loader={<Spinner className="h-[20px] w-[20px]"/>}
+                      loader={<Spinner className="h-[20px] w-[20px]" />}
                       loading={isLoading}
                       title="Download Result"
                       handleClick={() => handleDownload(item.id)}
