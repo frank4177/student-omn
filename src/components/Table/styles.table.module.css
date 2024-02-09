@@ -57,22 +57,45 @@ table {
 }
 
 
-.table__wrapper::-webkit-scrollbar {
-  width: 1.8rem;
+/* For WebKit engine browsers (Safari, Chrome, Edge ) */
+@supports (-webkit-appearance:none) {
+
+  .table__wrapper::-webkit-scrollbar {
+    width: 1.8rem; 
+  }
+
+  .table__wrapper::-webkit-scrollbar-thumb:vertical {
+    height: 156px;
+  } 
+
+  .table__wrapper::-webkit-scrollbar-thumb {
+    background: #46C35F !important;
+    border-radius: 1rem !important;
+    border: 0.47rem solid #f8f8f8 !important; 
+  }
+
+  .table__wrapper::-webkit-scrollbar {
+    width: 1.8rem;
+  }
+
+  .table__wrapper::-webkit-scrollbar-track {
+    background: #f8f8f8;
+  }
 }
 
-.table__wrapper::-webkit-scrollbar-track {
-  background: #f8f8f8;
-}
 
-.table__wrapper::-webkit-scrollbar-thumb {
-  background: #46C35F; 
-  border-radius: 1rem;
-  border: 0.47rem solid #f8f8f8;
-}
+/* For Firefox browser*/
+@-moz-document url-prefix() {
+  .table__wrapper {
+    scrollbar-width: 1.8rem; 
+    scrollbar-color: #46C35F #f8f8f8; /* Set the color of the scrollbar thumb */
+  }
 
-.table__wrapper::-webkit-scrollbar-thumb:vertical {
-  height: 156px;
+  .table__wrapper::-moz-scrollbar-thumb {
+    background: #46C35F; 
+    border-radius: 1rem; 
+    border: 0.47rem solid #f8f8f8; 
+  }
 }
 
 

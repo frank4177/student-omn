@@ -79,9 +79,9 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Name:</Text>
+              <Text style={{ fontWeight: "ultrabold", fontSize: 13}}>Name:</Text>
               <View style={{ textAlign: "left", width: "65%" }}>
-                <Text style={{ fontSize: 12 }}>
+                <Text style={{ fontSize: 12, fontWeight:"light" }}>
                   {" "}
                   {documentData?.data?.firstname +
                     " " +
@@ -97,9 +97,9 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Level:</Text>
+              <Text style={{ fontWeight: "ultrabold", fontSize: 13 }}>Level:</Text>
               <View style={{ textAlign: "left", width: "65%" }}>
-                <Text style={{ fontSize: 12 }}>
+                <Text style={{ fontSize: 12, fontWeight:"light" }}>
                   {documentData?.data?.level}
                 </Text>
               </View>
@@ -123,9 +123,9 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 width: "100%",
               }}
             >
-              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Reg No:</Text>
+              <Text style={{ fontWeight: "ultrabold", fontSize: 13 }}>Reg No.:</Text>
               <View style={{ textAlign: "left", width: "65%" }}>
-                <Text style={{ fontSize: 12 }}>
+                <Text style={{ fontSize: 12, fontWeight:"light" }}>
                   {documentData?.data?.reg_no}
                 </Text>
               </View>
@@ -138,9 +138,9 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ fontWeight: "bold", fontSize: 12 }}>Session:</Text>
+              <Text style={{ fontWeight: "ultrabold", fontSize: 13 }}>Session:</Text>
               <View style={{ textAlign: "left", width: "65%" }}>
-                <Text style={{ fontSize: 12 }}>
+                <Text style={{ fontSize: 12, fontWeight:"light" }}>
                   {documentData?.data?.session}
                 </Text>
               </View>
@@ -195,7 +195,7 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
             </Text>
             <Text
               style={{
-                maxWidth: 65,
+                maxWidth: 70,
                 width: "100%",
                 fontSize: 12,
                 textAlign: "center",
@@ -254,7 +254,7 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
                 </Text>
                 <Text
                   style={{
-                    maxWidth: 60,
+                    maxWidth: 70,
                     width: "100%",
                     fontSize: 12,
                     textAlign: "center",
@@ -356,7 +356,7 @@ export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {
 
         {/* Sign Registrar section*/}
         <View style={{ marginTop: 60 }}>
-          <Text>_________________________</Text>
+          <Text>_________________</Text>
           <Text style={{ fontSize: 13, marginTop: 7 }}>Registrar</Text>
         </View>
       </Page>
@@ -381,8 +381,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   photos: {
-    width: 100,
-    height: 100,
+    width: 90,
+    height: 90,
   },
   tableColumnSize: {
     maxWidth: 40,
