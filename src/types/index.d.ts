@@ -1,42 +1,33 @@
-z
+z;
 // student types
 export type StudentDataType = {
-    age: number;
-    firstname: string;
-    gender: string
-    id: number;
-    level: string;
-    state: string;
-    surname: string;
-  };
+  age: number;
+  firstname: string;
+  gender: string;
+  id: number;
+  level: string;
+  state: string;
+  surname: string;
+};
 
-  export type StudentTableHeadType = {
-    Header: string
-  }
+export type StudentTableHeadType = {
+  Header: string;
+};
 
+// Select component types
+export type SelectOptionsType = {
+  value: number | string;
+  label: string | number;
+};
 
-  // Select component types
-  export type LevelsType ={
-    id: number
-    level: string
-  }
+export type FilterType = {
+  age: string;
+  state: string;
+  level: string;
+  gender: string;
+};
 
-  export type AgesType ={
-    id: number
-    age: number
-  }
+export type FilterTypeArg = {
+  arg: FilterType;
+};
 
-  export type GenderType ={
-    id: number
-    gender: string
-  }
-
-  export type StateType ={
-    id: number
-    name: string
-  }
-
-  export type SelectOptionsType = {
-    value: number | string
-    label: string | number
-  }

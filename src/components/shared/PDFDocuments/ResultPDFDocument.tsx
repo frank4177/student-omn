@@ -6,9 +6,10 @@ import {
   StyleSheet,
   Image,
 } from "@react-pdf/renderer";
+import { ResultsDocType } from "./typesPDFDoc";
 
 interface IDocumentProps {
-  documentData: any;
+  documentData: ResultsDocType;
 }
 
 export const ResultPDFDocument = ({ documentData }: IDocumentProps) => {

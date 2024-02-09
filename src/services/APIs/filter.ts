@@ -4,6 +4,7 @@ import useSWRMutation from "swr/mutation";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/globalState";
 import toast from 'react-hot-toast';
+import { FilterTypeArg } from "../../types";
 
 // Filter Students endpoints
 export const ALL_LEVELS = "/viewAllLevels";
@@ -36,7 +37,7 @@ export const useFetchStudentData = (param: string) => {
 // POST
 export const useFilterStudents = () => {
   const { dispatch } = useContext(GlobalContext);
-  const postData = async (urlparam: string, { arg }: any) => {
+  const postData = async (urlparam: string, { arg }: FilterTypeArg) => {
     dispatch({
         type: "IS_FETCHING",
         payload: true

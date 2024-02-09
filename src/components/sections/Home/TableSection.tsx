@@ -16,12 +16,9 @@ const TableSection = () => {
         <Table
           studentTableData={state.students}
           studentTableHead={studentTableHead}
+          isFetching={state.isFetching}
         />
       )}
-
-      {state?.students === undefined && !state.isFetching ? (
-        <div className="text-black text-2xl text-center">No Data Found</div>
-      ) : null}
     </section>
   );
 };
