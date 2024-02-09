@@ -12,7 +12,9 @@ export const ALL_AGES = "/viewAllAges";
 export const ALL_GENDER = "/viewAllGender";
 export const ALL_STATES = "/viewAllStates";
 
-export const useFetchStudentData = (param: string) => {
+
+// Fetch filter data 
+export const useFetchFilterData = (param: string) => {
   const fetcher = async (url: string) => {
     try {
       const res = await request.get(url, header);
@@ -25,7 +27,6 @@ export const useFetchStudentData = (param: string) => {
       throw error;
     }
   };
-
   const { data, isValidating, mutate } = useSWR(param, fetcher, {
     shouldRetryOnError: false
   });
@@ -34,7 +35,7 @@ export const useFetchStudentData = (param: string) => {
 };
 
 
-// POST
+// Post selected filter data
 export const useFilterStudents = () => {
   const { dispatch } = useContext(GlobalContext);
   const postData = async (urlparam: string, { arg }: FilterTypeArg) => {

@@ -6,15 +6,15 @@ import {
   ALL_LEVELS,
   ALL_STATES,
   ALL_GENDER,
-  useFetchStudentData,
+  useFetchFilterData,
   useFilterStudents,
 } from "../../../services/APIs/filter";
 
 const FilterSection = () => {
-  const { data: levels } = useFetchStudentData(ALL_LEVELS);
-  const { data: ages } = useFetchStudentData(ALL_AGES);
-  const { data: gender } = useFetchStudentData(ALL_GENDER);
-  const { data: state } = useFetchStudentData(ALL_STATES);
+  const { data: levels } = useFetchFilterData(ALL_LEVELS);
+  const { data: ages } = useFetchFilterData(ALL_AGES);
+  const { data: gender } = useFetchFilterData(ALL_GENDER);
+  const { data: state } = useFetchFilterData(ALL_STATES);
   const { trigger: submitFilter } = useFilterStudents();
   const [errors, setErrors] = useState<boolean>(false);
   const [filterData, setFilterData] = useState<any>({

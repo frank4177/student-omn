@@ -8,7 +8,6 @@ export const request = axios.create({
 });
 
 // Headers
-
  export const header = {
     headers: {
         Accept: "application/json"
