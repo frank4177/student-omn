@@ -3,6 +3,7 @@ import { header, request } from "./_request";
 import useSWRMutation from "swr/mutation";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/globalState";
+import toast from 'react-hot-toast';
 
 // Filter Students endpoints
 export const ALL_LEVELS = "/viewAllLevels";
@@ -17,11 +18,16 @@ export const useFetchStudentData = (param: string) => {
       return res?.data;
     } catch (error) {
       console.error("Error fetching data:", error);
+      toast.error("Error fetching all filters", {
+        position: "top-center",
+      });
       throw error;
     }
   };
 
-  const { data, isValidating, mutate } = useSWR(param, fetcher);
+  const { data, isValidating, mutate } = useSWR(param, fetcher, {
+    shouldRetryOnError: false
+  });
 
   return { mutate, data, isValidating };
 };
@@ -35,10 +41,8 @@ export const useFilterStudents = () => {
         type: "IS_FETCHING",
         payload: true
     })
-    console.log(arg);
     try {
       const res = await request.post(urlparam, arg, header);
-      console.log(res);
       dispatch({
         type: "FETCH_STUDENTS",
         payload: res?.data?.data?.students,
@@ -53,6 +57,9 @@ export const useFilterStudents = () => {
             type: "IS_FETCHING",
             payload: false
         })
+        toast.error("Something went wrong", {
+          position: "top-center",
+        });
       console.error("Error fetching data:", error);
       throw error;
     }

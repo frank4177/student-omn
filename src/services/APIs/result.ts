@@ -1,4 +1,5 @@
 import { header, request } from "./_request";
+import toast from 'react-hot-toast';
 
 
 export const getResult = async (id: number) => {
@@ -7,6 +8,10 @@ export const getResult = async (id: number) => {
     return res;
   } catch (error) {
     console.error("Error fetching data:", error);
-    throw error;
+   
+    toast.error("Something went wrong", {
+      position: "top-center",
+    });
+    return error
   }
 };

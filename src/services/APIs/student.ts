@@ -2,10 +2,10 @@ import useSWR from "swr";
 import { header, request } from "./_request";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/globalState";
+import toast from 'react-hot-toast';
 
 // fetch all students endpoint
 export const ALL_DATA = "/viewAllData";
-
 
 // STUDENT GET REQUEST
 export const useFetchStudentData = (param: string) => {
@@ -14,27 +14,29 @@ export const useFetchStudentData = (param: string) => {
   const fetcher = async (endpoint: string) => {
     dispatch({
       type: "IS_FETCHING",
-      payload: true
-  })
+      payload: true,
+    });
     try {
       const res = await request.get(endpoint, header);
-      console.log(res);
       dispatch({
         type: "FETCH_STUDENTS",
         payload: res?.data.data?.students,
       });
       dispatch({
         type: "IS_FETCHING",
-        payload: false
-    })
+        payload: false,
+      });
       return res?.data;
     } catch (error) {
       dispatch({
         type: "IS_FETCHING",
-        payload: false
-    })
+        payload: false,
+      });
+      toast.error("Error fetching data", {
+        position: "top-center",
+      });
       console.error("Error fetching data:", error);
-      // alert("Error fetching data")
+      
       throw error;
     }
   };
@@ -42,10 +44,8 @@ export const useFetchStudentData = (param: string) => {
   const { data, isValidating, mutate } = useSWR(param, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
-    revalidateOnReconnect: true
+    revalidateOnReconnect: true,
   });
 
   return { mutate, data, isValidating };
 };
-
-

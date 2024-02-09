@@ -1,4 +1,4 @@
-
+z
 // student types
 export type StudentDataType = {
     age: number;

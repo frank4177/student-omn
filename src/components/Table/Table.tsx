@@ -18,14 +18,17 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
 
   const handleDownload = async (id: number) => {
     setLoading(id);
-    const res = await getResult(id);
-    if (res) {
+    const res: any = await getResult(id);
+    
+    if (res?.status === 200) {
       const fileName = "result.pdf";
       const blob = await pdf(
         <ResultPDFDocument documentData={res?.data} />
       ).toBlob();
 
       saveAs(blob, fileName);
+      setLoading(false);
+    }else{
       setLoading(false);
     }
   };

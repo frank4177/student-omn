@@ -1,6 +1,7 @@
 import FilterSection from "./components/sections/Home/FilterSection";
 import TableSection from "./components/sections/Home/TableSection";
 import CenterContainer from "./container/centerContainer";
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           </div>
         </CenterContainer>
       </div>
+      <Toaster/>
     </>
   );
 };
