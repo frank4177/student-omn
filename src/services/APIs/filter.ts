@@ -14,14 +14,14 @@ export const ALL_STATES = "/viewAllStates";
 
 
 // Fetch filter data 
-export const useFetchFilterData = (param: string) => {
+export const useFetchFilterData = (param: string, name: string) => {
   const fetcher = async (url: string) => {
     try {
       const res = await request.get(url, header);
       return res?.data;
     } catch (error) {
       console.error("Error fetching data:", error);
-      toast.error("Error fetching all filters", {
+      toast.error(`Filter for ${name} not available`, {
         position: "top-center",
       });
       throw error;

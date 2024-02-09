@@ -11,10 +11,10 @@ import {
 } from "../../../services/APIs/filter";
 
 const FilterSection = () => {
-  const { data: levels } = useFetchFilterData(ALL_LEVELS);
-  const { data: ages } = useFetchFilterData(ALL_AGES);
-  const { data: gender } = useFetchFilterData(ALL_GENDER);
-  const { data: state } = useFetchFilterData(ALL_STATES);
+  const { data: levels } = useFetchFilterData(ALL_LEVELS, "Levels");
+  const { data: ages } = useFetchFilterData(ALL_AGES, "Ages");
+  const { data: gender } = useFetchFilterData(ALL_GENDER,  "Gender");
+  const { data: state } = useFetchFilterData(ALL_STATES,  "States");
   const { trigger: submitFilter } = useFilterStudents();
   const [errors, setErrors] = useState<boolean>(false);
   const [filterData, setFilterData] = useState<any>({
