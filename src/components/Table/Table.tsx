@@ -69,7 +69,7 @@ const Table = ({ studentTableData, studentTableHead }: ITableProps) => {
                       loading={isLoading}
                       title="Download Result"
                       handleClick={() => handleDownload(item.id)}
-                      className="w-[180px] h-[45px]"
+                      className="w-[175px] h-[45px]"
                     />
                   </td>
                 </tr>
